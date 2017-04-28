@@ -1,31 +1,34 @@
 # python_learn
 
-How to clone the project
+    Δημιουργήστε ένα νέο virtual environment
+    C:\PythonProjects>virtualenv -p C:\python27\python.exe dvdstoreapp_venv
 
-    create a virtual environment by using python 2.7 only
+    Ενεργοποιήστε το virtual environment
+   (dvdstoreapp_venv) C:\PythonProjects\dvdstoreapp_venv>scripts\activate.bat
 
-virtualenv -p C:\python27\python.exe dvdstoreapp
+    Εγκαταστήστε το django
+    (dvdstoreapp_venv) C:\PythonProjects\dvdstoreapp_venv>pip install -U django
 
-    go inside the virtualenv and activate it
+    Δημιουργήστε το django project dvdstore
+    C:\PythonProjects\dvdstoreapp_venv>django-admin startproject dvdstore
 
-cd dvdstoreapp
+    Εκκινήστε τον development server
+    python manage.py runserver
+	
+	Δημιουργούμε ένα application με όνομα posts
+    (dvdstoreapp_venv) C:\PythonProjects\dvdstoreapp_venv>cd dvdstore
+    (dvdstoreapp_venv) C:\PythonProjects\dvdstoreapp_venv\dvdstore>python manage.py startapp dvdstore_app
 
-    and activate it(windows)
-
-Scripts\activate.bat
-
-    and activate it(linux)
-
-source bin/activate
-
-    clone the code from github
-
-git clone https://github.com/hkardamis/python_learn.git
-
-    go to app folder and install the dependencies
-
-cd wiskaba
-pip install -r requirements.txt
-
- pip install suds
-
+	-->ΠΡΕΠΕΙ να πάω στο settings.py και να το δηλώσω στο  INSTALLED_APPS (να μη ξεχάσω το κόμμα στο τέλος .....)
+	
+	( δεν το έκανα ακόμα !!!!!!!!
+	Για να εγκαταστήσουμε εφαρμογή
+    pip install django-registration-redux
+	)
+	
+	Για να δημιουργηθούν οι αντίστοιχοι πίνακες στην βάση κάνουμε migration:
+	python manage.py makemigrations
+	python manage.py migrate
+		
+	Δημιουργω superUser για το admin του Django (harris/iez48680)
+	python manage.py createsuperuser
